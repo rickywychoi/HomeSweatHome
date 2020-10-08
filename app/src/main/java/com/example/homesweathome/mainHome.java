@@ -8,13 +8,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class mainHome extends AppCompatActivity {
 
     ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_home);
         constraintLayout = findViewById(R.id.constraintLayout);
         constraintLayout.setBackgroundColor(Color.GRAY);
     }
