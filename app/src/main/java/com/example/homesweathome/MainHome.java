@@ -8,7 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-public class mainHome extends AppCompatActivity {
+public class MainHome extends AppCompatActivity {
 
     ConstraintLayout constraintLayout;
     @Override
