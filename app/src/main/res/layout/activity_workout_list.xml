@@ -7,19 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutList">
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="65dp"
-        android:layout_height="59dp"
-        android:onClick="backToMainHome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937"
-        app:srcCompat="@drawable/abc_vector_test" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="337dp"
@@ -47,17 +34,32 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="65dp"
+        android:layout_height="59dp"
+        android:onClick="backToMainHome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937"
+        app:srcCompat="@drawable/abc_vector_test"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="64dip"
         android:layout_height="64dip"
         android:background="@drawable/add_workout"
-        android:onClick="SwitchToEditWorkout"
+        android:onClick="switchToEditWorkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.944"
+        android:layout_marginRight="10dp"/>
 
     <Button
         android:id="@+id/button"

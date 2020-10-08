@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">HomeSweatHome</string>
+    <string name="count_down_ready">Ready?</string>
+    <string name="count_down_three">3</string>
+    <string name="count_down_two">2</string>
+    <string name="count_down_one">1</string>
+    <string name="your_workouts_today">Your workouts for today</string>
+    <string name="keep_working">Keep working...</string>
+    <string name="paused">Paused</string>
+    <string name="skip_this_workout">Skip this workout</string>
+    <string name="quit">QUIT</string>
+    <string name="done">Well done!</string>
+    <string name="share">Share</string>
+    <string name="you_did_textView">You did: </string>
+    <string name="total_elapsed_textView">Total elapsed time: </string>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_width="64dip"
         android:layout_height="64dip"
         android:background="@drawable/add_workout"
-        android:onClick="SwitchToEditWorkout"
+        android:onClick="switchToEditWorkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -137,6 +137,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/abc_vector_test" />
+        app:srcCompat="@drawable/abc_vector_test"
+        android:layout_marginLeft="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

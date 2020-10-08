@@ -19,8 +19,13 @@ public class MainHome extends AppCompatActivity {
         constraintLayout.setBackgroundColor(Color.GRAY);
     }
 
-    public void SwitchToWorkoutList(View view) {
-        Intent intent = new Intent(this, WorkoutList.class);
+    public void switchToWorkoutList(View view) {
+        Intent intent = new Intent(MainHome.this, WorkoutList.class);
+        startActivity(intent);
+    }
+
+    public void switchToWorkoutPlay(View view) {
+        Intent intent = new Intent(MainHome.this, CountDownBeforeWorkout.class);
         startActivity(intent);
     }
 }

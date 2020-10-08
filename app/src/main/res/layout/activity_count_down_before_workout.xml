@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CountDownBeforeWorkout">
+
+    <TextView
+        android:id="@+id/count_down_ready"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/count_down_ready"
+        android:textSize="60sp" />
+
+    <TextView
+        android:id="@+id/count_down_three"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/count_down_three"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/count_down_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/count_down_two"
+        android:textSize="100sp" />
+
+    <TextView
+        android:id="@+id/count_down_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/count_down_one"
+        android:textSize="100sp" />
+</RelativeLayout>

@@ -19,7 +19,7 @@ public class WorkoutList extends AppCompatActivity {
         constraintLayout.setBackgroundColor(Color.GRAY);
     }
 
-    public void SwitchToEditWorkout(View view) {
+    public void switchToEditWorkout(View view) {
         Intent intent = new Intent(this, EditWorkout.class);
         startActivity(intent);
     }
