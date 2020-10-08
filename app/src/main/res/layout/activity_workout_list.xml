@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:id="@+id/constraintLayout"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WorkoutList">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="337dp"
+        android:layout_height="164dp"
+        android:text="Leg Day"
+        android:textSize="12pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +25,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center"
-        android:text="Your workouts for today"
+        android:text="My Workouts"
         android:textSize="16pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -22,31 +34,16 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:onClick="SwitchToWorkoutList"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952"
-        app:srcCompat="@drawable/dumbbell" />
-
-    <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="64dip"
         android:layout_height="64dip"
-        android:background="@drawable/greenplay"
+        android:background="@drawable/add_workout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.893"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952" />
-
+        app:layout_constraintVertical_bias="0.944" />
 
     <Button
         android:id="@+id/button"
