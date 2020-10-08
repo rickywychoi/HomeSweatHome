@@ -11,7 +11,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".login_page_3"></activity>
         <activity android:name=".login_page_2" />
-        <activity android:name=".login_page">
+        <activity android:name=".login_page"></activity>
+        <activity android:name=".EditWorkout"></activity>
+        <activity android:name=".WorkoutList" />
+        <activity android:name=".mainHome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
