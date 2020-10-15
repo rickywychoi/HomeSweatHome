@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
     android:layout_height="380dp"
-    tools:context=".ShareWithFriends"
+    tools:context=".ShareWithFriendsActivity"
     android:orientation="vertical"
     android:background="#d3d3d3"
     android:padding="5dp"

@@ -8,24 +8,23 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainHome extends AppCompatActivity {
+public class WorkoutListActivity extends AppCompatActivity {
 
     ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_home);
+        setContentView(R.layout.activity_workout_list);
         constraintLayout = findViewById(R.id.constraintLayout);
         constraintLayout.setBackgroundColor(Color.GRAY);
     }
 
-    public void switchToWorkoutList(View view) {
-        Intent intent = new Intent(MainHome.this, WorkoutList.class);
+    public void switchToEditWorkout(View view) {
+        Intent intent = new Intent(this, EditWorkoutActivity.class);
         startActivity(intent);
     }
 
-    public void switchToWorkoutPlay(View view) {
-        Intent intent = new Intent(MainHome.this, CountDownBeforeWorkout.class);
-        startActivity(intent);
+    public void backToMainHome(View view) {
+        finish();
     }
 }
