@@ -25,6 +25,7 @@ public class MainHomeActivity extends AppCompatActivity {
     }
 
     public void switchToWorkoutPlay(View view) {
+        WorkoutPlayActivity.setTime(15 * 60);
         Intent intent = new Intent(MainHomeActivity.this, CountDownBeforeWorkoutActivity.class);
         startActivity(intent);
     }
