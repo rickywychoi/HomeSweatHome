@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class EditWorkout extends AppCompatActivity {
+public class EditWorkoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,5 +16,8 @@ public class EditWorkout extends AppCompatActivity {
 
     public void backToWorkoutList(View view) {
         finish();
+    }
+
+    public void switchToEditWorkout(View view) {
     }
 }

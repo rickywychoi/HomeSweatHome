@@ -18,7 +18,7 @@ public class login_page_3 extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(login_page_3.this, MainHome.class);
+                Intent i = new Intent(login_page_3.this, MainHomeActivity.class);
                 startActivity(i);
                 finish();
             }

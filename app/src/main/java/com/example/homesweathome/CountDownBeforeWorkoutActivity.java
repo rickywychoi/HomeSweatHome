@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
-public class CountDownBeforeWorkout extends AppCompatActivity {
+public class CountDownBeforeWorkoutActivity extends AppCompatActivity {
     private static int TIME_OUT = 7200;
 
     @Override
@@ -23,7 +23,7 @@ public class CountDownBeforeWorkout extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(CountDownBeforeWorkout.this, WorkoutPlay.class);
+                Intent i = new Intent(CountDownBeforeWorkoutActivity.this, WorkoutPlayActivity.class);
                 startActivity(i);
                 finish();
             }
