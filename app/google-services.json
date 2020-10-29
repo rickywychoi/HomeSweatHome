@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "601860648606",
+    "firebase_url": "https://home-sweat-home.firebaseio.com",
+    "project_id": "home-sweat-home",
+    "storage_bucket": "home-sweat-home.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601860648606:android:08513f81db2b2c8976d58f",
+        "android_client_info": {
+          "package_name": "com.example.homesweathome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601860648606-m11f5c7bcqhben9gml8n4vv10ighul8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqxpUMqpdnheASezlrxlokPrSYpjJy8UA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601860648606-m11f5c7bcqhben9gml8n4vv10ighul8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
