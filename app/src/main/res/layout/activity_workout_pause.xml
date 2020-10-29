@@ -64,7 +64,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
-        android:onClick="onClickResumeWorkout"/>
+        android:onClick="onClickResumeWorkout"
+        android:background="@null"/>
 
     <Button
         android:id="@+id/quit"
@@ -74,5 +75,7 @@
         android:textSize="20dp"
         android:textColor="#ff0000"
         android:layout_gravity="center"
-        android:onClick="onClickQuit"/>
+        android:onClick="onClickQuit"
+        android:background="@drawable/back"
+        />
 </LinearLayout>
