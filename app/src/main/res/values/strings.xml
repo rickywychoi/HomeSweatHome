@@ -15,4 +15,12 @@
     <string name="total_elapsed_textView">Total elapsed time: </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Workout Creation Strings below-->
+    <string name="btnAddWorkout">Add Workout</string>
+    <string-array name="workoutTypes">
+        <item>Repetition-Based</item>
+        <item>Timed</item>
+    </string-array>
+    <string name="reps">Repetitions:</string>
+    <string name="sets">Sets:</string>
 </resources>
