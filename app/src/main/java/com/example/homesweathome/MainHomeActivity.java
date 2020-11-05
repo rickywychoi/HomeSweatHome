@@ -7,10 +7,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +31,10 @@ public class MainHomeActivity extends AppCompatActivity {
     Button firebaseTestBtn;
     DatabaseReference database;
     //
+
+    // For account information
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInAccount acct;
 
     ConstraintLayout constraintLayout;
     @Override
@@ -62,6 +73,58 @@ public class MainHomeActivity extends AppCompatActivity {
         //
         // end of firebase test
         //
+
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        acct = GoogleSignIn.getLastSignedInAccount(MainHomeActivity.this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem accountNameItem = menu.findItem(R.id.account_name_item);
+        MenuItem accountEmailItem = menu.findItem(R.id.account_email_item);
+        if (acct != null) {
+            String welcomeStr = "Welcome, " + acct.getDisplayName();
+            accountNameItem.setTitle(welcomeStr);
+            accountEmailItem.setTitle(acct.getEmail());
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.sign_out_item:
+                signOut();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(MainHomeActivity.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainHomeActivity.this, login_page.class));
+                        finish();
+                    }
+                });
     }
 
     public void switchToWorkoutList(View view) {

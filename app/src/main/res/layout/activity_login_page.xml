@@ -55,12 +55,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.05" />
 
-    <Button
-        android:id="@+id/login"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/GoogleSignInBtn"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
-        android:text="Login"
         android:textSize="18sp"
         android:onClick="login"/>
 
