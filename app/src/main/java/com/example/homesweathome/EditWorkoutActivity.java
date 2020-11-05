@@ -192,7 +192,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
         setValueTask.addOnSuccessListener(new OnSuccessListener() {
             @Override
             public void onSuccess(Object o) {
-                Toast.makeText(EditWorkoutActivity.this,"Student added.",Toast.LENGTH_LONG).show();
+                Toast.makeText(EditWorkoutActivity.this,"Workout successfully added.",Toast.LENGTH_LONG).show();
 
                 editTextExcerciseName.setText("");
                 setChoice.setValue(0);
