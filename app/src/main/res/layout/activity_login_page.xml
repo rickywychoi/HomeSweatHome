@@ -55,13 +55,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.05" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/GoogleSignInBtn"
+<!--    <com.google.android.gms.common.SignInButton-->
+<!--        android:id="@+id/GoogleSignInBtn"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:textSize="18sp"-->
+<!--        android:onClick="login"/>-->
+    <Button
+        android:id="@+id/toLoginBtn"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
-        android:textSize="18sp"
-        android:onClick="login"/>
+        android:text="Login"
+        android:textSize="18sp" />
 
     <Space
         android:layout_width="match_parent"

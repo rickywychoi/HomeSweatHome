@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,10 +33,9 @@ public class MainHomeActivity extends AppCompatActivity {
     Button firebaseTestBtn;
     DatabaseReference database;
     //
-
-    // For account information
-    GoogleSignInClient mGoogleSignInClient;
-    GoogleSignInAccount acct;
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
 
     ConstraintLayout constraintLayout;
     @Override
@@ -74,16 +75,10 @@ public class MainHomeActivity extends AppCompatActivity {
         // end of firebase test
         //
 
-        // Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        acct = GoogleSignIn.getLastSignedInAccount(MainHomeActivity.this);
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
     }
 
     @Override
@@ -94,12 +89,13 @@ public class MainHomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        FirebaseUser user = mAuth.getCurrentUser();
         MenuItem accountNameItem = menu.findItem(R.id.account_name_item);
         MenuItem accountEmailItem = menu.findItem(R.id.account_email_item);
-        if (acct != null) {
-            String welcomeStr = "Welcome, " + acct.getDisplayName();
+        if (user != null) {
+            String welcomeStr = "Welcome, " + user.getUid();
             accountNameItem.setTitle(welcomeStr);
-            accountEmailItem.setTitle(acct.getEmail());
+            accountEmailItem.setTitle(user.getEmail());
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -116,15 +112,18 @@ public class MainHomeActivity extends AppCompatActivity {
     }
 
     private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(MainHomeActivity.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainHomeActivity.this, login_page.class));
-                        finish();
-                    }
-                });
+        mAuth.signOut();
+        Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(MainHomeActivity.this, login_page.class));
+//        mGoogleSignInClient.signOut()
+//                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(MainHomeActivity.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
+//                        startActivity(new Intent(MainHomeActivity.this, login_page.class));
+//                        finish();
+//                    }
+//                });
     }
 
     public void switchToWorkoutList(View view) {
