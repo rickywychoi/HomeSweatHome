@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#999999"
+    android:background="#"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
@@ -14,15 +14,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="125dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
-        android:src="@drawable/logo" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:src="@drawable/HomeSweatHome_logo"
+        android:layout_marginTop="63dp"/>
 
     <TextView
         android:id="@+id/textView"
@@ -30,7 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Welcome to"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -38,8 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Home Sweat"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:textColor="#ffa500"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -47,33 +48,32 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Home"
-        android:textSize="35dp"
-        android:textStyle="bold" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05" />
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFa500"/>
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/GoogleSignInBtn"
-        android:layout_width="150dp"
+        android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_gravity="center_horizontal"
         android:textSize="18sp"
-        android:onClick="login"/>
+        android:onClick="login"
+        android:layout_marginTop="56dp"
+        android:background="#f0f0f0"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+
 
     <Button
         android:id="@+id/button2"
         android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
         android:text="About"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:background="#ffa500"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginTop="150dp"/>
 
 </LinearLayout>

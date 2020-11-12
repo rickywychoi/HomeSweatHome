@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#999999"
+    android:background="#fff"
     android:orientation="vertical"
     tools:context=".login_page_3">
 
@@ -19,9 +19,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="You are not alone,"
-        android:textColor="#000000"
         android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#FFA500"/>
 
     <TextView
         android:id="@+id/quote2"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="we all in this"
-        android:textColor="#000000"
+        android:textColor="#FFA500"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="together."
-        android:textColor="#000000"
+        android:textColor="#FFA500"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -57,6 +57,6 @@
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
         android:progressDrawable="@drawable/circular_progress_bar"
-        android:progressTint="#FF992C" />
+        android:progressTint="#FFA500" />
 
 </LinearLayout>

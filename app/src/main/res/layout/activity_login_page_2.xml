@@ -9,19 +9,17 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
-    android:background="#999999"
+    android:background="#fff"
     tools:context=".login_page_2">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="150dp"
-        android:layout_height="125dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:srcCompat="@drawable/logo" />
+        android:layout_marginTop="63dp"
+        app:srcCompat="@drawable/HomeSweatHome_logo" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -29,7 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Welcome to"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginTop="18dp"
+        android:textColor="#000" />
 
     <TextView
         android:id="@+id/textView5"
@@ -37,8 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Home Sweat"
-        android:textSize="35sp"
-        android:textStyle="bold" />
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFA500"
+        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -46,30 +48,32 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Home"
-        android:textSize="35dp"
-        android:textStyle="bold" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#FFA500" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFA500"
         android:ems="10"
-        android:hint="Username" />
+        android:hint="Username"
+        android:textColorHint="#FFF"
+        android:padding="5dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:ems="10"
-        android:hint="Password" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:hint="Password"
+        android:background="#FFA500"
+        android:layout_marginTop="15dp"
+        android:textColor="#FFF"
+        android:textColorHint="#FFF"
+        android:padding="5dp" />
 
     <Button
         android:id="@+id/loginSubmit"
@@ -78,5 +82,9 @@
         android:layout_gravity="center_horizontal"
         android:onClick="loginSubmit"
         android:text="Login"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:background="#FFA500"
+        android:textColor="#FFF"
+        android:textStyle="bold"/>
 </LinearLayout>
