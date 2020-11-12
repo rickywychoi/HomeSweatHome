@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUs">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="63dp"
+            app:srcCompat="@drawable/home_sweat_home_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="Our Mission"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFA500"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Our goal is to keep people active"
+            android:layout_marginTop="55dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="during hard times like COVID-19"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Developers "
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFA500"
+            android:layout_marginTop="136dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            app:cardCornerRadius="75dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:layout_height="120dp"
+                android:layout_width="120dp"
+                android:src="@drawable/ricky"
+                android:layout_gravity="center_horizontal"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ricky Choi"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFA500"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="As a term 3 CST student, I wanted to make a mobile app that encourages people to stay active and do workouts safe at home."
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Almost a year has been passed at this moment since COVID-19 outbreak, it is important to keep our mental and physical health by having actual physical activities."
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            app:cardCornerRadius="75dp"
+            android:layout_marginTop="75dp">
+
+            <ImageView
+                android:layout_height="120dp"
+                android:layout_width="120dp"
+                android:src="@drawable/sung"
+                android:layout_gravity="center_horizontal"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sung Na"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFA500"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="As a CST student at BCIT, I aspire to become a full-stack web developer after graduation."
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Mental health has been a big decline as the pandemic has been our reality for the majority of 2020. I hope that this app can take care of users with their mental health by assisting them by planning workouts"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_horizontal"
+            app:cardCornerRadius="75dp"
+            android:layout_marginTop="75dp">
+
+            <ImageView
+                android:layout_height="80dp"
+                android:layout_width="150dp"
+                android:src="@drawable/max"
+                android:layout_gravity="center_horizontal"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max Jesus"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="#FFA500"/>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="I was in charge of the systems regarding workout creation, storing, and deletion as well as the UI for these processes."
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#000"
+            android:layout_marginBottom="50dp"/>
+
+    </LinearLayout>
+</ScrollView>

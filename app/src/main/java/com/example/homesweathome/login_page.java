@@ -24,7 +24,7 @@ public class login_page extends AppCompatActivity {
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
 
-    Button toLoginBtn;
+    Button toLoginBtn, aboutUsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,18 @@ public class login_page extends AppCompatActivity {
 //            }
 //        });
         toLoginBtn = (Button) findViewById(R.id.toLoginBtn);
+        aboutUsBtn = (Button) findViewById(R.id.aboutUsBtn);
         toLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(login_page.this, login_page_2.class);
+                startActivity(intent);
+            }
+        });
+        aboutUsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login_page.this, AboutUs.class);
                 startActivity(intent);
             }
         });
