@@ -118,29 +118,33 @@ public class MainHomeActivity extends AppCompatActivity {
             return true;
         }
 
-
         switch (item.getItemId()) {
             case R.id.start_workout:
                 Intent intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
                 startActivity(intent);
                 drawerLay.closeDrawer(GravityCompat.START);
+                return true;
             case R.id.add_workout:
                 Intent intent1 = new Intent(MainHomeActivity.this, EditWorkoutActivity.class);
                 startActivity(intent1);
                 drawerLay.closeDrawer(GravityCompat.START);
+                return true;
             case R.id.view_workout:
-                Intent intent2 = new Intent(MainHomeActivity.this, EditWorkoutActivity.class);
+                Intent intent2 = new Intent(MainHomeActivity.this, AboutUs.class);
                 startActivity(intent2);
                 drawerLay.closeDrawer(GravityCompat.START);
+                return true;
             case R.id.view_friends:
                 Intent intent3 = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);
                 startActivity(intent3);
                 drawerLay.closeDrawer(GravityCompat.START);
+                return true;
             case R.id.sign_out_item:
                 mAuth.signOut();
                 Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainHomeActivity.this, login_page.class));
                 drawerLay.closeDrawer(GravityCompat.START);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
