@@ -40,7 +40,7 @@ public class WorkoutAdapter extends ArrayAdapter<Workout> {
 
         Workout work = workoutList.get(position);
         workoutName.setText(work.getWorkoutTitle());
-        if(work.sets >= 1) {
+        if((work.sets >= 1) && (work.repetitions >= 1)) {
             workoutDetails.setText("Sets: " + work.sets + " Repetitions: " + work.repetitions);
         }
         if(work.seconds >= 1 || work.minutes >= 1) {

@@ -70,6 +70,10 @@ public class EditWorkoutActivity extends AppCompatActivity {
         secChoice = findViewById(R.id.seconds);
         secChoice.setMinValue(0);
         secChoice.setMaxValue(59);
+        setChoice.setValue(0);
+        repChoice.setValue(0);
+        minChoice.setValue(0);
+        secChoice.setValue(0);
 
 
         editTextExcerciseName = findViewById(R.id.editTextExcerciseName);
@@ -175,8 +179,8 @@ public class EditWorkoutActivity extends AppCompatActivity {
         String workoutName = editTextExcerciseName.getText().toString().trim();
         Integer sets = setChoice.getValue();
         Integer reps = repChoice.getValue();
-        Integer minutes = repChoice.getValue();
-        Integer seconds = repChoice.getValue();
+        Integer minutes = minChoice.getValue();
+        Integer seconds = secChoice.getValue();
 
         if (TextUtils.isEmpty(workoutName)) {
             Toast.makeText(this, "You must enter a first name.", Toast.LENGTH_LONG).show();
@@ -185,9 +189,9 @@ public class EditWorkoutActivity extends AppCompatActivity {
 
 
         String id = databaseWorkouts.push().getKey();
-        Workout student = new Workout(workoutName, reps, sets, minutes, seconds);
+        Workout added = new Workout(workoutName, reps, sets, minutes, seconds);
 
-        Task setValueTask = databaseWorkouts.child(id).setValue(student);
+        Task setValueTask = databaseWorkouts.child(id).setValue(added);
 
         setValueTask.addOnSuccessListener(new OnSuccessListener() {
             @Override
