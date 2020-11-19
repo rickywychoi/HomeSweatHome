@@ -23,4 +23,6 @@
     </string-array>
     <string name="reps">Repetitions:</string>
     <string name="sets">Sets:</string>
+    <string name="navOpen">Open</string>
+    <string name="navClose">Close</string>
 </resources>
