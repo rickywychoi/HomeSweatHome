@@ -1,16 +1,21 @@
 package com.example.homesweathome;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -29,6 +34,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Date;
 
 public class MainHomeActivity extends AppCompatActivity {
+    private DrawerLayout drawerLay;
+    private ActionBarDrawerToggle toggle;
     // Button and DatabaseReference for firebase connection test
     Button firebaseTestBtn;
     DatabaseReference database;
@@ -44,6 +51,11 @@ public class MainHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_home);
         constraintLayout = findViewById(R.id.constraintLayout);
         constraintLayout.setBackgroundColor(Color.GRAY);
+        drawerLay = (DrawerLayout) findViewById(R.id.navbar);
+        toggle = new ActionBarDrawerToggle(this, drawerLay, R.string.navOpen, R.string.navClose);
+        drawerLay.addDrawerListener(toggle);
+        toggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //
         // Test if firebase is properly connected
@@ -90,31 +102,52 @@ public class MainHomeActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         FirebaseUser user = mAuth.getCurrentUser();
-        MenuItem accountNameItem = menu.findItem(R.id.account_name_item);
-        MenuItem accountEmailItem = menu.findItem(R.id.account_email_item);
+        TextView accountNameItem = findViewById(R.id.account_name_item);
+        TextView accountEmailItem = findViewById(R.id.account_email_item);
         if (user != null) {
             String welcomeStr = "Welcome, " + user.getUid();
-            accountNameItem.setTitle(welcomeStr);
-            accountEmailItem.setTitle(user.getEmail());
+            accountNameItem.setText(welcomeStr);
+            accountEmailItem.setText(user.getEmail());
         }
         return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+
         switch (item.getItemId()) {
+            case R.id.start_workout:
+                Intent intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
+                startActivity(intent);
+                drawerLay.closeDrawer(GravityCompat.START);
+            case R.id.add_workout:
+                Intent intent1 = new Intent(MainHomeActivity.this, EditWorkoutActivity.class);
+                startActivity(intent1);
+                drawerLay.closeDrawer(GravityCompat.START);
+            case R.id.view_workout:
+                Intent intent2 = new Intent(MainHomeActivity.this, EditWorkoutActivity.class);
+                startActivity(intent2);
+                drawerLay.closeDrawer(GravityCompat.START);
+            case R.id.view_friends:
+                Intent intent3 = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);
+                startActivity(intent3);
+                drawerLay.closeDrawer(GravityCompat.START);
             case R.id.sign_out_item:
-                signOut();
-                return true;
+                mAuth.signOut();
+                Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainHomeActivity.this, login_page.class));
+                drawerLay.closeDrawer(GravityCompat.START);
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     private void signOut() {
-        mAuth.signOut();
-        Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(MainHomeActivity.this, login_page.class));
+
 //        mGoogleSignInClient.signOut()
 //                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
 //                    @Override
@@ -125,6 +158,20 @@ public class MainHomeActivity extends AppCompatActivity {
 //                    }
 //                });
     }
+
+    public void startWorkout() {
+    }
+
+    public void viewFriends() {
+    }
+
+    public void addWorkout() {
+
+    }
+
+    public void viewWorkout() {
+    }
+
 
     public void switchToWorkoutList(View view) {
         Intent intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);

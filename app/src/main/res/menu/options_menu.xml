@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/account_name_item"
-        android:title="Something went wrong..." />
-    <item android:id="@+id/account_email_item"
-        android:title="Something went wrong..." />
-    <item android:id="@+id/sign_out_item"
-        android:title="Sign Out" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+        <item
+            android:id="@+id/start_workout"
+            android:icon="@drawable/play_button"
+            android:title="Start Today's Workout" />
+        <item
+            android:id="@+id/add_workout"
+            android:icon="@drawable/plus"
+            android:title="Add Workouts" />
+        <item
+            android:id="@+id/view_workout"
+            android:icon="@drawable/loupe"
+            android:title="View Workouts" />
+        <item
+            android:id="@+id/view_friends"
+            android:icon="@drawable/hive_five"
+            android:title="View Friends" />
+        <item
+            android:id="@+id/sign_out_item"
+            android:icon="@drawable/logout"
+            android:title="Sign Out" />
+
+
 </menu>
