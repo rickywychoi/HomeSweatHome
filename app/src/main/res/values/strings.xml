@@ -16,6 +16,9 @@
     <string name="add_workout_title">Add Workout</string>
     <string name="add_workout_btn">Add</string>
     <string name="add_workout_edit_text_hint">Enter the name of the workout (e.g., Cardio, Chest, Leg, ...)</string>
+    <string name="view_btn_label">View</string>
+    <string name="edit_btn_label">Edit</string>
+    <string name="delete_btn_label">Delete</string>
     <string-array name="workoutTypes">
         <item>Repetition-Based</item>
         <item>Timed</item>

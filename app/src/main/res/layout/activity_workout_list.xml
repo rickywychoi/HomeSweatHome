@@ -37,42 +37,10 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/leg_day_btn"
-                android:layout_width="337dp"
-                android:layout_height="164dp"
-                android:text="Leg Day"
-                android:textSize="12pt"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.564" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="337dp"
-                android:layout_height="164dp"
-                android:text="Cardio"
-                android:textSize="12pt"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.236" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="337dp"
-                android:layout_height="164dp"
-                android:text="Chest Day"
-                android:textSize="12pt"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.236" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workouts_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>

@@ -5,8 +5,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
-
 public class WorkoutManager {
     private static final String WORKOUT_REF = "workouts";
     private DatabaseReference database;

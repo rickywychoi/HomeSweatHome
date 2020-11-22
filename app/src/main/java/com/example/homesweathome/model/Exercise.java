@@ -10,6 +10,8 @@ public class Exercise extends UserObject {
     private Integer seconds;
     private Date addedDate = new Date();
 
+    public Exercise() { super(); }
+
     public Exercise(String uid, String workoutTitle, Integer repetitions,
                     Integer sets, Integer minutes, Integer seconds) {
         super(uid);

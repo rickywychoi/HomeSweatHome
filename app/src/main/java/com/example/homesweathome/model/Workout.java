@@ -8,6 +8,8 @@ public class Workout extends UserObject {
     private List<Exercise> exerciseList;
     private Date addedDate = new Date();
 
+    public Workout() { super(); }
+
     public Workout(String uid, String name) {
         super(uid);
         this.name = name;
