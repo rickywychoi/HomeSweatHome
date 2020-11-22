@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".AddWorkoutActivity"></activity>
+        <activity android:name=".AboutUs" />
         <activity android:name=".ShareWithFriendsActivity" />
         <activity android:name=".WorkoutDoneActivity" />
         <activity android:name=".WorkoutPauseActivity" />

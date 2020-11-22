@@ -1,16 +1,18 @@
-package com.example.homesweathome;
+package com.example.homesweathome.model;
 
-public class Workout {
-    String workoutTitle;
-    Integer repetitions;
-    Integer sets;
-    Integer minutes;
-    Integer seconds;
+import java.util.Date;
 
-    public Workout() {}
+public class Exercise extends UserObject {
+    private String workoutTitle;
+    private Integer repetitions;
+    private Integer sets;
+    private Integer minutes;
+    private Integer seconds;
+    private Date addedDate = new Date();
 
-    public Workout(String workoutTitle, Integer repetitions,
-                   Integer sets, Integer minutes, Integer seconds) {
+    public Exercise(String uid, String workoutTitle, Integer repetitions,
+                    Integer sets, Integer minutes, Integer seconds) {
+        super(uid);
         this.workoutTitle = workoutTitle;
         this.repetitions = repetitions;
         this.sets = sets;
@@ -48,4 +50,5 @@ public class Workout {
     public void setSeconds(Integer seconds) {
         this.seconds = seconds;
     }
+
 }

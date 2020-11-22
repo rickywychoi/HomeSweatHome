@@ -1,25 +1,19 @@
 package com.example.homesweathome;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
-import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.homesweathome.model.Exercise;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -48,7 +42,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
     DatabaseReference databaseWorkouts;
 
     ListView lvStudents;
-    List<Workout> WorkoutList;
+    List<Exercise> WorkoutList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +78,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
         });
 
         lvStudents = findViewById(R.id.lvStudents);
-        WorkoutList = new ArrayList<Workout>();
+        WorkoutList = new ArrayList<Exercise>();
 
 //        lvStudents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 //            @Override
@@ -110,12 +104,12 @@ public class EditWorkoutActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 WorkoutList.clear();
                 for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
-                    Workout work = studentSnapshot.getValue(Workout.class);
+                    Exercise work = studentSnapshot.getValue(Exercise.class);
                     WorkoutList.add(work);
                 }
-
-                WorkoutAdapter adapter = new WorkoutAdapter(EditWorkoutActivity.this, WorkoutList);
-                lvStudents.setAdapter(adapter);
+//
+//                WorkoutAdapter adapter = new WorkoutAdapter(EditWorkoutActivity.this, WorkoutList);
+//                lvStudents.setAdapter(adapter);
             }
 
             @Override
@@ -185,7 +179,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
 
 
         String id = databaseWorkouts.push().getKey();
-        Workout student = new Workout(workoutName, reps, sets, minutes, seconds);
+        Exercise student = new Exercise(workoutName, reps, sets, minutes, seconds);
 
         Task setValueTask = databaseWorkouts.child(id).setValue(student);
 

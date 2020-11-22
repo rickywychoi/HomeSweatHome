@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/leg_day_btn"
                 android:layout_width="337dp"
                 android:layout_height="164dp"
                 android:text="Leg Day"
@@ -83,7 +83,7 @@
         android:layout_height="64dip"
         android:layout_marginRight="10dp"
         android:background="@drawable/add_workout"
-        android:onClick="switchToEditWorkout"
+        android:onClick="switchToAddWorkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.899"
