@@ -34,15 +34,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Date;
 
 public class MainHomeActivity extends AppCompatActivity {
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
+
     private DrawerLayout drawerLay;
     private ActionBarDrawerToggle toggle;
     // Button and DatabaseReference for firebase connection test
     Button firebaseTestBtn;
     DatabaseReference database;
     //
-    // [START declare_auth]
-    private FirebaseAuth mAuth;
-    // [END declare_auth]
 
     ConstraintLayout constraintLayout;
     @Override

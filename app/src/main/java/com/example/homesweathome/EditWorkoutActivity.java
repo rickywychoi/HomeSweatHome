@@ -17,6 +17,7 @@ import com.example.homesweathome.model.Exercise;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditWorkoutActivity extends AppCompatActivity {
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+    // [END declare_auth]
 
     EditText editTextExcerciseName;
     Button buttonAddWorkoutreps;
@@ -48,6 +52,11 @@ public class EditWorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_edit_workout);
+
+        // [START initialize_auth]
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
 
         timeLayout = findViewById(R.id.timeLayout);
         repLayout = findViewById(R.id.repLayout);
@@ -179,7 +188,7 @@ public class EditWorkoutActivity extends AppCompatActivity {
 
 
         String id = databaseWorkouts.push().getKey();
-        Exercise student = new Exercise(workoutName, reps, sets, minutes, seconds);
+        Exercise student = new Exercise(mAuth.getUid(), workoutName, reps, sets, minutes, seconds);
 
         Task setValueTask = databaseWorkouts.child(id).setValue(student);
 

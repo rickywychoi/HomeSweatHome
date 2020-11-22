@@ -32,4 +32,9 @@ public class Workout extends UserObject {
     public Date getAddedDate() {
         return addedDate;
     }
+
+    @Override
+    public String toString() {
+        return (uid + "_" + name + "_" + addedDate.getTime());
+    }
 }

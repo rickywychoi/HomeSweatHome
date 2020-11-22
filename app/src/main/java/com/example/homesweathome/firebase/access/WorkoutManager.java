@@ -16,12 +16,12 @@ public class WorkoutManager {
     }
 
     public Task<Void> add(Workout toAdd) {
-        String id =  toAdd.getName() + "-" + toAdd.getAddedDate().getTime();
+        String id =  toAdd.toString();
         return database.child(WORKOUT_REF).child(id).setValue(toAdd);
     }
 
-//    public Task<Void> merge(Record toMerge) {
-//        String id = toMerge.getRecordFor() + "-" + toMerge.getDate().getTime();
+//    public Task<Void> merge(Workout toMerge) {
+//        String id = toMerge.toString();
 //        HashMap<String, Object> updates = new HashMap<>();
 //        updates.put("condition", toMerge.getCondition());
 //        updates.put("systolic", toMerge.getSystolic());
