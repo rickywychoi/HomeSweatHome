@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddWorkoutActivity"></activity>
+        <activity android:name=".EditWorkoutActivity"></activity>
+        <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".AboutUs" />
         <activity android:name=".ShareWithFriendsActivity" />
         <activity android:name=".WorkoutDoneActivity" />
         <activity android:name=".WorkoutPauseActivity" />
         <activity android:name=".CountDownBeforeWorkoutActivity" />
         <activity android:name=".WorkoutPlayActivity" />
-        <activity android:name=".EditWorkoutActivity" />
+        <activity android:name=".EditExerciseActivity" />
         <activity android:name=".WorkoutListActivity" />
         <activity android:name=".MainHomeActivity" />
         <activity android:name=".login_page_3" />

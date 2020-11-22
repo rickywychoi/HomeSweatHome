@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditWorkoutActivity">
+    tools:context=".EditExerciseActivity">
 
     <EditText
-        android:id="@+id/editTextExcerciseName"
+        android:id="@+id/new_editTextExcerciseName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -37,7 +37,7 @@
 
     <LinearLayout
         android:visibility="gone"
-        android:id="@+id/repLayout"
+        android:id="@+id/new_repLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -54,7 +54,7 @@
             android:text="Repetitions: "></TextView>
 
         <NumberPicker
-            android:id="@+id/repetitions"
+            android:id="@+id/new_repetitions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"></NumberPicker>
@@ -66,13 +66,13 @@
             android:text="Sets: "></TextView>
 
         <NumberPicker
-            android:id="@+id/sets"
+            android:id="@+id/new_sets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></NumberPicker>
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonAddWorkoutReps"
+            android:id="@+id/new_buttonAddWorkoutReps"
             android:layout_width="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
@@ -80,19 +80,9 @@
             android:text="Add Workout"></Button>
     </LinearLayout>
 
-
-
-
-
-
-
-
-
-
-
     <LinearLayout
         android:visibility="gone"
-        android:id="@+id/timeLayout"
+        android:id="@+id/new_timeLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -107,7 +97,7 @@
             android:text="Minutes: "
             android:layout_gravity="center_vertical"></TextView>
         <NumberPicker
-            android:id="@+id/minutes"
+            android:id="@+id/new_minutes"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content"></NumberPicker>
@@ -117,13 +107,13 @@
             android:text="Seconds: "
             android:layout_gravity="center_vertical"></TextView>
         <NumberPicker
-            android:id="@+id/seconds"
+            android:id="@+id/new_seconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></NumberPicker>
         </LinearLayout>
 
             <Button
-                android:id="@+id/buttonAddWorkouttime"
+                android:id="@+id/new_buttonAddWorkouttime"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="Add Workout"

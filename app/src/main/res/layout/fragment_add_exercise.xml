@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="10dp"
+    tools:context=".AddExerciseFragment">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+       <EditText
+           android:id="@+id/editTextExcerciseName"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:hint="Title of Excercise"
+           android:inputType="textPersonName" />
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:orientation="horizontal">
+
+           <Button
+               android:text="Repetition Workout"
+               android:layout_width="180dp"
+               android:layout_height="wrap_content"></Button>
+
+           <Button
+               android:text="Timed Workout"
+               android:layout_width="180dp"
+               android:layout_height="wrap_content"></Button>
+       </LinearLayout>
+
+       <LinearLayout
+           android:visibility="gone"
+           android:id="@+id/repLayout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:orientation="horizontal"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical"
+                   android:text="Repetitions: "></TextView>
+
+               <NumberPicker
+                   android:id="@+id/repetitions"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"></NumberPicker>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical"
+                   android:text="Sets: "></TextView>
+
+               <NumberPicker
+                   android:id="@+id/sets"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"></NumberPicker>
+           </LinearLayout>
+
+           <Button
+               android:id="@+id/buttonAddWorkoutReps"
+               android:layout_width="wrap_content"
+               android:layout_marginTop="30dp"
+               android:layout_gravity="center_horizontal"
+               android:layout_height="wrap_content"
+               android:text="Add Workout" />
+       </LinearLayout>
+
+       <LinearLayout
+           android:visibility="gone"
+           android:id="@+id/timeLayout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:layout_gravity="center_horizontal">
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Minutes: "
+                   android:layout_gravity="center_vertical"></TextView>
+               <NumberPicker
+                   android:id="@+id/minutes"
+                   android:layout_width="wrap_content"
+                   android:orientation="horizontal"
+                   android:layout_height="wrap_content"></NumberPicker>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Seconds: "
+                   android:layout_gravity="center_vertical"></TextView>
+               <NumberPicker
+                   android:id="@+id/seconds"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"></NumberPicker>
+           </LinearLayout>
+
+           <Button
+               android:id="@+id/buttonAddWorkouttime"
+               android:layout_width="wrap_content"
+               android:layout_marginTop="30dp"
+               android:text="Add Workout"
+               android:layout_gravity="center_horizontal"
+               android:layout_height="wrap_content" />
+       </LinearLayout>
+
+   </LinearLayout>
+
+</FrameLayout>
