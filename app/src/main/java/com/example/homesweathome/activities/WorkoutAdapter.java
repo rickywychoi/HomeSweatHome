@@ -1,4 +1,4 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.example.homesweathome.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 public class Workout {
     String workoutTitle;

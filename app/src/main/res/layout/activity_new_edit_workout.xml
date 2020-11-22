@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditWorkoutActivity">
+    tools:context=".activities.EditWorkoutActivity">
 
     <EditText
         android:id="@+id/editTextExcerciseName"
@@ -33,7 +33,6 @@
             android:onClick="showTime"
             android:layout_height="wrap_content"></Button>
     </LinearLayout>
-
 
     <LinearLayout
         android:visibility="gone"
@@ -80,16 +79,6 @@
             android:text="Add Workout"></Button>
     </LinearLayout>
 
-
-
-
-
-
-
-
-
-
-
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/timeLayout"
@@ -130,7 +119,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"></Button>
     </LinearLayout>
-
 
     <ListView
         android:id="@+id/lvStudents"

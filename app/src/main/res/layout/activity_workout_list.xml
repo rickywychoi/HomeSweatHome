@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutListActivity">
+    tools:context=".activities.WorkoutListActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/leg_day_btn"
                 android:layout_width="337dp"
                 android:layout_height="164dp"
                 android:text="Leg Day"

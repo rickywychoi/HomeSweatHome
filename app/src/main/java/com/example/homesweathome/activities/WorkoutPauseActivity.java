@@ -1,10 +1,12 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.homesweathome.R;
 
 public class WorkoutPauseActivity extends AppCompatActivity {
 

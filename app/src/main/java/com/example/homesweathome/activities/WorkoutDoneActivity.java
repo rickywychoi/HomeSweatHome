@@ -1,4 +1,4 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.homesweathome.R;
 
 public class WorkoutDoneActivity extends AppCompatActivity {
     Dialog myDialog;

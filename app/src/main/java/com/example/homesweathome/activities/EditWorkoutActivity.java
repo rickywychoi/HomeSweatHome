@@ -1,25 +1,19 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.NumberPicker;
-import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.homesweathome.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -86,20 +80,6 @@ public class EditWorkoutActivity extends AppCompatActivity {
         lvStudents = findViewById(R.id.lvStudents);
         WorkoutList = new ArrayList<Workout>();
 
-//        lvStudents.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                Workout work = WorkoutList.get(position);
-//
-//                showUpdateDialog(work.getWorkoutTitle(),
-//                        work.getRepetitions(),
-//                        work.getSets(),
-//                        work.getMinutes(), work.getSeconds());
-//
-//                return false;
-//            }
-//        });
-
     }
 
     @Override
@@ -145,32 +125,6 @@ public class EditWorkoutActivity extends AppCompatActivity {
         });
     }
 
-
-//    private void updateStudent(String workoutTitle, Integer rep, Integer set, Integer min, Integer sec) {
-//        DatabaseReference dbRef = databaseWorkouts.child(workoutTitle);
-//
-//        Workout work = new Workout(workoutTitle,rep,set,min, sec);
-//
-//        Task setValueTask = dbRef.setValue(work);
-//
-//        setValueTask.addOnSuccessListener(new OnSuccessListener() {
-//            @Override
-//            public void onSuccess(Object o) {
-//                Toast.makeText(EditWorkoutActivity.this,
-//                        "Workout Updated.",Toast.LENGTH_LONG).show();
-//            }
-//        });
-//
-//        setValueTask.addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(EditWorkoutActivity.this,
-//                        "Something went wrong.\n" + e.toString(),
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
     private void addStudent() {
         String workoutName = editTextExcerciseName.getText().toString().trim();
         Integer sets = setChoice.getValue();
@@ -211,65 +165,6 @@ public class EditWorkoutActivity extends AppCompatActivity {
             }
         });
     }
-
-//    private void showUpdateDialog(final String workoutName, Integer rep, Integer set, Integer minute, Integer sec) {
-//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-//
-//        LayoutInflater inflater = getLayoutInflater();
-//
-//        final View dialogView = inflater.inflate(R.layout.update_dialog, null);
-//        dialogBuilder.setView(dialogView);
-//
-//        final EditText editTextExcerciseName = dialogView.findViewById(R.id.editTextExcerciseName);
-//        editTextExcerciseName.setText(firstName);
-//
-//        final EditText editTextLastName = dialogView.findViewById(R.id.editTextLastName);
-//        editTextLastName.setText(lastName);
-//
-//        final Spinner spinnerSchool = dialogView.findViewById(R.id.spinnerSchool);
-//        spinnerSchool.setSelection(((ArrayAdapter<String>)spinnerSchool.getAdapter()).getPosition(school));
-//
-//        final Button btnUpdate = dialogView.findViewById(R.id.btnUpdate);
-//
-//        dialogBuilder.setTitle("Update Student " + firstName + " " + lastName);
-//
-//        final AlertDialog alertDialog = dialogBuilder.create();
-//        alertDialog.show();
-//
-//        btnUpdate.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String firstName = editTextExcerciseName.getText().toString().trim();
-//                String lastName = editTextLastName.getText().toString().trim();
-//                String school = spinnerSchool.getSelectedItem().toString().trim();
-//
-//                if (TextUtils.isEmpty(firstName)) {
-//                    editTextExcerciseName.setError("First Name is required");
-//                    return;
-//                } else if (TextUtils.isEmpty(lastName)) {
-//                    editTextLastName.setError("Last Name is required");
-//                    return;
-//                }
-//
-//                updateStudent(studentId, firstName, lastName, school);
-//
-//                alertDialog.dismiss();
-//            }
-//        });
-//
-//        final Button btnDelete = dialogView.findViewById(R.id.btnDelete);
-//        btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                deleteStudent(studentId);
-//
-//                alertDialog.dismiss();
-//            }
-//        });
-//
-//    }
-
-
 
     public void showReps(View view) {
         timeLayout.setVisibility(view.GONE);

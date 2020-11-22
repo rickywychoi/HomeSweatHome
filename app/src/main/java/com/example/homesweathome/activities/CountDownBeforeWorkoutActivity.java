@@ -1,4 +1,4 @@
-package com.example.homesweathome;
+package com.example.homesweathome.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.os.Looper;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
+
+import com.example.homesweathome.R;
 
 public class CountDownBeforeWorkoutActivity extends AppCompatActivity {
     private static int TIME_OUT = 7200;

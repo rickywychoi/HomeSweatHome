@@ -5,13 +5,13 @@
     android:id="@+id/workout_play_main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorkoutPlayActivity">
+    tools:context=".activities.WorkoutPlayActivity">
     <LinearLayout
         android:id="@+id/workout_play_container_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".WorkoutPlayActivity"
+        tools:context=".activities.WorkoutPlayActivity"
         android:padding="10dp">
         <TextView
             android:id="@+id/keep_working"

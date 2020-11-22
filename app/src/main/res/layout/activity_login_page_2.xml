@@ -10,7 +10,7 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     android:background="#fff"
-    tools:context=".login_page_2">
+    tools:context=".activities.login_page_2">
 
     <ImageView
         android:id="@+id/imageView2"

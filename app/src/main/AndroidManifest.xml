@@ -11,18 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUs"></activity>
-        <activity android:name=".ShareWithFriendsActivity" />
-        <activity android:name=".WorkoutDoneActivity" />
-        <activity android:name=".WorkoutPauseActivity" />
-        <activity android:name=".CountDownBeforeWorkoutActivity" />
-        <activity android:name=".WorkoutPlayActivity" />
-        <activity android:name=".EditWorkoutActivity" />
-        <activity android:name=".WorkoutListActivity" />
-        <activity android:name=".MainHomeActivity" />
-        <activity android:name=".login_page_3" />
-        <activity android:name=".login_page_2" />
-        <activity android:name=".login_page">
+        <activity android:name=".activities.AboutUs"></activity>
+        <activity android:name=".activities.ShareWithFriendsActivity" />
+        <activity android:name=".activities.WorkoutDoneActivity" />
+        <activity android:name=".activities.WorkoutPauseActivity" />
+        <activity android:name=".activities.CountDownBeforeWorkoutActivity" />
+        <activity android:name=".activities.WorkoutPlayActivity" />
+        <activity android:name=".activities.EditWorkoutActivity" />
+        <activity android:name=".activities.WorkoutListActivity" />
+        <activity android:name=".activities.MainHomeActivity" />
+        <activity android:name=".activities.login_page_3" />
+        <activity android:name=".activities.login_page_2" />
+        <activity android:name=".activities.login_page">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

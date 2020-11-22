@@ -15,7 +15,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainHomeActivity"
+        tools:context=".activities.MainHomeActivity"
         tools:ignore="MissingDefaultResource">
 
         <TextView
