@@ -15,7 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import com.example.homesweathome.firebase.access.ExerciseManager;
+import com.example.homesweathome.firebase.access.WorkoutManager;
 import com.example.homesweathome.model.Exercise;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +35,13 @@ public class AddExerciseFragment extends Fragment {
     private FirebaseAuth mAuth;
     // [END declare_auth]
 
+    // [START declare_firebase]
+    ExerciseManager exerciseManager;
+    // [END declare_firebase]
+
     private EditText editTextExcerciseName;
+    private Button openRepBasedBtn;
+    private Button openTimeBasedBtn;
     private Button buttonAddWorkoutreps;
     private Button buttonAddWorkouttime;
     private NumberPicker setChoice;
@@ -76,9 +85,14 @@ public class AddExerciseFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
+        // [START initialize_firebase]
+        // Initialize Firebase Realtime Database
+        exerciseManager = new ExerciseManager();
+        // [END initialize_firebase]
+
         timeLayout = view.findViewById(R.id.timeLayout);
         repLayout = view.findViewById(R.id.repLayout);
-        setChoice = view.findViewById(R.id.new_sets);
+        setChoice = view.findViewById(R.id.sets);
         setChoice.setMinValue(0);
         setChoice.setMaxValue(10);
         repChoice = view.findViewById(R.id.repetitions);
@@ -91,9 +105,33 @@ public class AddExerciseFragment extends Fragment {
         secChoice.setMinValue(0);
         secChoice.setMaxValue(59);
 
-        editTextExcerciseName = view.findViewById(R.id.editTextExcerciseName);
-        buttonAddWorkoutreps = view.findViewById(R.id.buttonAddWorkoutReps);
-        buttonAddWorkouttime = view.findViewById(R.id.buttonAddWorkouttime);
+        editTextExcerciseName = (EditText) view.findViewById(R.id.editTextExcerciseName);
+        openRepBasedBtn = (Button) view.findViewById(R.id.open_rep_based_btn);
+        openTimeBasedBtn = (Button) view.findViewById(R.id.open_time_based_btn);
+        buttonAddWorkoutreps = (Button) view.findViewById(R.id.buttonAddWorkoutReps);
+        buttonAddWorkouttime = (Button) view.findViewById(R.id.buttonAddWorkouttime);
+        repLayout = (LinearLayout) view.findViewById(R.id.repLayout);
+        timeLayout = (LinearLayout) view.findViewById(R.id.timeLayout);
+
+        openRepBasedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                repLayout.setVisibility(View.VISIBLE);
+                timeLayout.setVisibility(View.GONE);
+                minChoice.setValue(0);
+                secChoice.setValue(0);
+            }
+        });
+
+        openTimeBasedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                repLayout.setVisibility(View.GONE);
+                timeLayout.setVisibility(View.VISIBLE);
+                repChoice.setValue(0);
+                setChoice.setValue(0);
+            }
+        });
 
         buttonAddWorkoutreps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,17 +151,30 @@ public class AddExerciseFragment extends Fragment {
     }
 
     private void addExercise() {
+        String workoutTitle = ((EditWorkoutActivity) getActivity()).getWorkoutTitle();
         String exerciseName = editTextExcerciseName.getText().toString().trim();
         Integer sets = setChoice.getValue();
         Integer reps = repChoice.getValue();
-        Integer minutes = repChoice.getValue();
-        Integer seconds = repChoice.getValue();
+        Integer minutes = minChoice.getValue();
+        Integer seconds = secChoice.getValue();
 
         if (TextUtils.isEmpty(exerciseName)) {
             Toast.makeText(getActivity(), "Exercise name cannot be empty", Toast.LENGTH_LONG).show();
             return;
         }
 
+        Exercise exercise = new Exercise(mAuth.getUid(), workoutTitle, exerciseName, reps, sets, minutes, seconds);
+        exerciseManager.add(exercise).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(getActivity(), "Successfully added exercise.", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(), "Failed to add exercise.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 //        String id = databaseWorkouts.push().getKey();
 //        Exercise student = new Exercise(mAuth.getUid(), exerciseName, reps, sets, minutes, seconds);

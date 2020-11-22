@@ -19,7 +19,7 @@
     <string name="view_btn_label">View</string>
     <string name="edit_btn_label">Edit</string>
     <string name="delete_btn_label">Delete</string>
-    <string name="add_exercise_btn_label">Add Exercises</string>
+    <string name="add_exercise_label">Add Exercises</string>
     <string-array name="workoutTypes">
         <item>Repetition-Based</item>
         <item>Timed</item>

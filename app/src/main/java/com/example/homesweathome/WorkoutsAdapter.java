@@ -2,6 +2,7 @@ package com.example.homesweathome;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,8 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(view.getContext(), EditExerciseActivity.class);
+                Intent i = new Intent(view.getContext(), EditWorkoutActivity.class);
+                i.putExtra("WorkoutTitle", workoutTitle.getText().toString());
                 ctx.startActivity(i);
             }
         });

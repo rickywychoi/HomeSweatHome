@@ -188,7 +188,7 @@ public class EditExerciseActivity extends AppCompatActivity {
 
 
         String id = databaseWorkouts.push().getKey();
-        Exercise student = new Exercise(mAuth.getUid(), workoutName, reps, sets, minutes, seconds);
+        Exercise student = new Exercise(mAuth.getUid(), "", workoutName, reps, sets, minutes, seconds);
 
         Task setValueTask = databaseWorkouts.child(id).setValue(student);
 

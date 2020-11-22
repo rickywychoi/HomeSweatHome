@@ -1,21 +1,22 @@
 package com.example.homesweathome.firebase.access;
 
-import com.example.homesweathome.model.Workout;
+import com.example.homesweathome.model.Exercise;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WorkoutManager {
-    private static final String WORKOUT_REF = "workouts";
+public class ExerciseManager {
+
+    private static final String EXERCISE_REF = "exercises";
     private DatabaseReference database;
 
-    public WorkoutManager() {
+    public ExerciseManager() {
         database = FirebaseDatabase.getInstance().getReference();
     }
 
-    public Task<Void> add(Workout toAdd) {
+    public Task<Void> add(Exercise toAdd) {
         String id = toAdd.toString();
-        return database.child(WORKOUT_REF).child(id).setValue(toAdd);
+        return database.child(EXERCISE_REF).child(id).setValue(toAdd);
     }
 
 //    public Task<Void> merge(Workout toMerge) {

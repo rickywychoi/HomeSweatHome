@@ -14,21 +14,22 @@
         android:id="@+id/workout_edit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:layout_marginBottom="20dp"
         android:text="Workout Title Sample" />
 
-    <Button
-        android:id="@+id/add_exercise_btn"
+    <TextView
+        android:id="@+id/add_exercise_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_exercise_btn_label" />
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/add_exercise_label" />
 
     <fragment
+        android:id="@+id/add_exercise_fragment"
         android:name="com.example.homesweathome.AddExerciseFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent" />
-
-
 
 </LinearLayout>

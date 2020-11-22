@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Exercise extends UserObject {
     private String workoutTitle;
+    private String exerciseTitle;
     private Integer repetitions;
     private Integer sets;
     private Integer minutes;
@@ -12,21 +13,29 @@ public class Exercise extends UserObject {
 
     public Exercise() { super(); }
 
-    public Exercise(String uid, String workoutTitle, Integer repetitions,
+    public Exercise(String uid, String workoutTitle, String exerciseTitle, Integer repetitions,
                     Integer sets, Integer minutes, Integer seconds) {
         super(uid);
         this.workoutTitle = workoutTitle;
+        this.exerciseTitle = exerciseTitle;
         this.repetitions = repetitions;
         this.sets = sets;
         this.minutes = minutes;
         this.seconds = seconds;
     }
 
-
-    public String getWorkoutTitle() { return workoutTitle; }
+    public String getWorkoutTitle() {
+        return workoutTitle;
+    }
 
     public void setWorkoutTitle(String workoutTitle) {
         this.workoutTitle = workoutTitle;
+    }
+
+    public String getExerciseTitle() { return exerciseTitle; }
+
+    public void setExerciseTitle(String exerciseTitle) {
+        this.exerciseTitle = exerciseTitle;
     }
 
     public Integer getRepetitions() {return repetitions;}
@@ -53,4 +62,8 @@ public class Exercise extends UserObject {
         this.seconds = seconds;
     }
 
+    @Override
+    public String toString() {
+        return (uid + "_" + workoutTitle + "_" + exerciseTitle + "_" + addedDate.getTime());
+    }
 }
