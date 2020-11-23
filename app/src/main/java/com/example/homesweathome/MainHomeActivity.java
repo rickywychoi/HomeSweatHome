@@ -2,9 +2,12 @@ package com.example.homesweathome;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,12 +16,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.homesweathome.model.Workout;
+import com.example.homesweathome.viewModel.WorkoutsViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainHomeActivity extends AppCompatActivity {
     // [START declare_auth]
@@ -27,18 +38,17 @@ public class MainHomeActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLay;
     private ActionBarDrawerToggle toggle;
-    // Button and DatabaseReference for firebase connection test
-    Button firebaseTestBtn;
-    DatabaseReference database;
-    //
 
-    ConstraintLayout constraintLayout;
+    private List<Workout> workoutList;
+    private LocalDate currentDate;
+
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
-        constraintLayout = findViewById(R.id.constraintLayout);
-        constraintLayout.setBackgroundColor(Color.GRAY);
+        linearLayout = findViewById(R.id.linearLayout);
+        linearLayout.setBackgroundColor(Color.GRAY);
         drawerLay = (DrawerLayout) findViewById(R.id.navbar);
         toggle = new ActionBarDrawerToggle(this, drawerLay, R.string.navOpen, R.string.navClose);
         drawerLay.addDrawerListener(toggle);
@@ -50,6 +60,27 @@ public class MainHomeActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
+
+        final RecyclerView dailyWorkoutRecycler = findViewById(R.id.daily_workout_recycler_view);
+
+        WorkoutsViewModel viewModel = new ViewModelProvider(this).get(WorkoutsViewModel.class);
+        LiveData<DataSnapshot> liveData = viewModel.getDataSnapshotLiveData();
+
+        workoutList = new ArrayList<>();
+        currentDate = LocalDate.now();
+
+        liveData.observe(this, dataSnapshot -> {
+            workoutList.clear();
+            for (DataSnapshot workoutSnapshot : dataSnapshot.getChildren()) {
+                Workout workout = workoutSnapshot.getValue(Workout.class);
+                if (workout.getDayOfWeekList().contains(currentDate.getDayOfWeek())) {
+                    workoutList.add(workout);
+                }
+            }
+            dailyWorkoutRecycler.setAdapter(new DailyWorkoutsAdapter(workoutList));
+            GridLayoutManager glm = new GridLayoutManager(getApplication(), 1);
+            dailyWorkoutRecycler.setLayoutManager(glm);
+        });
     }
 
     @Override
@@ -83,11 +114,11 @@ public class MainHomeActivity extends AppCompatActivity {
                 startActivity(intent);
                 drawerLay.closeDrawer(GravityCompat.START);
                 return true;
-            case R.id.add_workout:
-                Intent intent1 = new Intent(MainHomeActivity.this, EditExerciseActivity.class);
-                startActivity(intent1);
-                drawerLay.closeDrawer(GravityCompat.START);
-                return true;
+//            case R.id.add_workout:
+//                Intent intent1 = new Intent(MainHomeActivity.this, EditExerciseActivity.class);
+//                startActivity(intent1);
+//                drawerLay.closeDrawer(GravityCompat.START);
+//                return true;
             case R.id.view_workout:
                 Intent intent2 = new Intent(MainHomeActivity.this, AboutUs.class);
                 startActivity(intent2);

@@ -18,12 +18,16 @@ import android.widget.Toast;
 import com.example.homesweathome.firebase.access.ExerciseManager;
 import com.example.homesweathome.firebase.access.WorkoutManager;
 import com.example.homesweathome.model.Exercise;
+import com.example.homesweathome.model.Workout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.time.DayOfWeek;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +54,12 @@ public class AddExerciseFragment extends Fragment {
     private NumberPicker secChoice;
     private LinearLayout repLayout;
     private LinearLayout timeLayout;
+
+    private Workout workout;
+    private List<DayOfWeek> dayOfWeekList;
+    private String workoutTitle;
+
+    private boolean isRepBased;
 
     public AddExerciseFragment() {
         // Required empty public constructor
@@ -90,6 +100,10 @@ public class AddExerciseFragment extends Fragment {
         exerciseManager = new ExerciseManager();
         // [END initialize_firebase]
 
+        workout = ((EditWorkoutActivity) getActivity()).getWorkout();
+        dayOfWeekList = workout.getDayOfWeekList();
+        workoutTitle = workout.getName();
+
         timeLayout = view.findViewById(R.id.timeLayout);
         repLayout = view.findViewById(R.id.repLayout);
         setChoice = view.findViewById(R.id.sets);
@@ -120,6 +134,7 @@ public class AddExerciseFragment extends Fragment {
                 timeLayout.setVisibility(View.GONE);
                 minChoice.setValue(0);
                 secChoice.setValue(0);
+                isRepBased = true;
             }
         });
 
@@ -130,6 +145,7 @@ public class AddExerciseFragment extends Fragment {
                 timeLayout.setVisibility(View.VISIBLE);
                 repChoice.setValue(0);
                 setChoice.setValue(0);
+                isRepBased = false;
             }
         });
 
@@ -151,7 +167,6 @@ public class AddExerciseFragment extends Fragment {
     }
 
     private void addExercise() {
-        String workoutTitle = ((EditWorkoutActivity) getActivity()).getWorkoutTitle();
         String exerciseName = editTextExcerciseName.getText().toString().trim();
         Integer sets = setChoice.getValue();
         Integer reps = repChoice.getValue();
@@ -163,7 +178,7 @@ public class AddExerciseFragment extends Fragment {
             return;
         }
 
-        Exercise exercise = new Exercise(mAuth.getUid(), workoutTitle, exerciseName, reps, sets, minutes, seconds);
+        Exercise exercise = new Exercise(mAuth.getUid(), workoutTitle, exerciseName, reps, sets, minutes, seconds, isRepBased);
         exerciseManager.add(exercise).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -175,32 +190,5 @@ public class AddExerciseFragment extends Fragment {
                 Toast.makeText(getActivity(), "Failed to add exercise.", Toast.LENGTH_SHORT).show();
             }
         });
-
-//        String id = databaseWorkouts.push().getKey();
-//        Exercise student = new Exercise(mAuth.getUid(), exerciseName, reps, sets, minutes, seconds);
-//
-//        Task setValueTask = databaseWorkouts.child(id).setValue(student);
-//
-//        setValueTask.addOnSuccessListener(new OnSuccessListener() {
-//            @Override
-//            public void onSuccess(Object o) {
-//                Toast.makeText(EditExerciseActivity.this,"Workout successfully added.",Toast.LENGTH_LONG).show();
-//
-//                editTextExcerciseName.setText("");
-//                setChoice.setValue(0);
-//                repChoice.setValue(0);
-//                minChoice.setValue(0);
-//                secChoice.setValue(0);
-//            }
-//        });
-//
-//        setValueTask.addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                Toast.makeText(EditExerciseActivity.this,
-//                        "something went wrong.\n" + e.toString(),
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }

@@ -9,13 +9,17 @@
     android:orientation="vertical"
     android:id="@+id/navbar">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/constraintLayout"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         tools:context=".MainHomeActivity"
+        android:paddingTop="20dp"
+        android:paddingHorizontal="30dp"
         tools:ignore="MissingDefaultResource">
 
         <TextView
@@ -25,54 +29,43 @@
             android:fontFamily="sans-serif-condensed-light"
             android:gravity="center"
             android:text="@string/your_workouts_today"
-            android:textSize="16pt"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.057" />
+            android:layout_marginBottom="30dp"
+            android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="337dp"
-            android:layout_height="164dp"
-            android:text="Cardio"
-            android:textSize="12pt"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.236" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/daily_workout_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
 
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="64dip"
-            android:layout_height="64dip"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/greenplay"
-            android:onClick="switchToWorkoutPlay"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.938" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:onClick="switchToWorkoutList"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.91"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.952"
-            app:srcCompat="@drawable/dumbbell" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="64dip"
+                android:layout_height="64dip"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/greenplay"
+                android:onClick="switchToWorkoutPlay"
+                android:layout_marginRight="200dp"/>
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:onClick="switchToWorkoutList"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.91"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.952"
+                app:srcCompat="@drawable/dumbbell" />
+        </LinearLayout>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         app:headerLayout="@layout/header"

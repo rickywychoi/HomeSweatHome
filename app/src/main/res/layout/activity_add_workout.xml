@@ -24,7 +24,90 @@
         android:textSize="30sp"
         android:hint="@string/add_workout_edit_text_hint"
         android:gravity="center"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginBottom="30dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/workout_days_title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/workout_monday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/monday" />
+            <CheckBox
+                android:id="@+id/workout_tuesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/tuesday" />
+            <CheckBox
+                android:id="@+id/workout_wednesday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/wednesday" />
+            <CheckBox
+                android:id="@+id/workout_thursday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/thursday" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/workout_friday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/friday" />
+            <CheckBox
+                android:id="@+id/workout_saturday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/saturday" />
+            <CheckBox
+                android:id="@+id/workout_sunday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/sunday" />
+        </LinearLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/add_workout_btn"
         android:layout_width="wrap_content"

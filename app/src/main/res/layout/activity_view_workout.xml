@@ -8,10 +8,10 @@
     android:gravity="center_horizontal"
     android:paddingVertical="30dp"
     android:paddingHorizontal="10dp"
-    tools:context=".EditWorkoutActivity">
+    tools:context=".ViewWorkoutActivity">
 
     <TextView
-        android:id="@+id/workout_edit_title"
+        android:id="@+id/workout_view_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40sp"
@@ -19,7 +19,7 @@
         android:text="Workout Title Sample" />
 
     <TextView
-        android:id="@+id/workout_edit_days"
+        android:id="@+id/workout_view_days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,18 +27,9 @@
         android:textSize="20sp"
         android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:id="@+id/add_exercise_text_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exercise_recycler_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/add_exercise_label" />
-
-    <fragment
-        android:id="@+id/add_exercise_fragment"
-        android:name="com.example.homesweathome.AddExerciseFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

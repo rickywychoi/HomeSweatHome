@@ -1,9 +1,7 @@
 package com.example.homesweathome;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,18 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.example.homesweathome.model.Workout;
-import com.example.homesweathome.viewModel.WorkoutViewModel;
 import com.example.homesweathome.viewModel.WorkoutsViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,13 +27,13 @@ public class WorkoutListActivity extends AppCompatActivity {
 
     private List<Workout> workoutList;
 
-    ConstraintLayout constraintLayout;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_list);
-        constraintLayout = findViewById(R.id.constraintLayout);
-        constraintLayout.setBackgroundColor(Color.GRAY);
+        linearLayout = findViewById(R.id.linearLayout);
+        linearLayout.setBackgroundColor(Color.GRAY);
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -62,10 +56,10 @@ public class WorkoutListActivity extends AppCompatActivity {
                     workoutList.add(workout);
                 }
 
-                workoutRecycler.setAdapter(new WorkoutsAdapter(workoutList));
-                GridLayoutManager glm = new GridLayoutManager(getApplication(), 1);
-                workoutRecycler.setLayoutManager(glm);
-                }
+            }
+            workoutRecycler.setAdapter(new WorkoutsAdapter(workoutList));
+            GridLayoutManager glm = new GridLayoutManager(getApplication(), 1);
+            workoutRecycler.setLayoutManager(glm);
         });
 
     }
@@ -76,6 +70,7 @@ public class WorkoutListActivity extends AppCompatActivity {
     }
 
     public void backToMainHome(View view) {
-        finish();
+        Intent intent = new Intent(this, MainHomeActivity.class);
+        startActivity(intent);
     }
 }

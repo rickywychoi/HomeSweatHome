@@ -1,5 +1,8 @@
 package com.example.homesweathome.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 public class UserObject {
     protected String uid;
 

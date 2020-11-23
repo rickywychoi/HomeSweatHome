@@ -14,11 +14,22 @@
     <string name="you_did_textView">You did: </string>
     <string name="total_elapsed_textView">Total elapsed time: </string>
     <string name="add_workout_title">Add Workout</string>
+
+    <string name="workout_days_title">Check the day(s) of this workout: </string>
+    <string name="monday">Mon</string>
+    <string name="tuesday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="thursday">Thu</string>
+    <string name="friday">Fri</string>
+    <string name="saturday">Sat</string>
+    <string name="sunday">Sun</string>
+
     <string name="add_workout_btn">Add</string>
     <string name="add_workout_edit_text_hint">Enter the name of the workout (e.g., Cardio, Chest, Leg, ...)</string>
     <string name="view_btn_label">View</string>
     <string name="edit_btn_label">Edit</string>
     <string name="delete_btn_label">Delete</string>
+    <string name="save_btn_label">Save</string>
     <string name="add_exercise_label">Add Exercises</string>
     <string-array name="workoutTypes">
         <item>Repetition-Based</item>
@@ -28,6 +39,4 @@
     <string name="sets">Sets:</string>
     <string name="navOpen">Open</string>
     <string name="navClose">Close</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

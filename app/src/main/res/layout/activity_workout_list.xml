@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".WorkoutListActivity">
 
     <TextView
@@ -14,63 +16,35 @@
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center"
         android:text="My Workouts"
-        android:textSize="16pt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        android:layout_marginBottom="20dp"
+        android:textSize="16pt" />
 
-    <ScrollView
-        android:layout_width="413dp"
-        android:layout_height="519dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.603">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workouts_recycler_view"
+        android:layout_width="wrap_content"
+        android:layout_height="519dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/workouts_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="65dp"
+            android:layout_height="59dp"
+            android:onClick="backToMainHome"
+            android:layout_marginRight="200dp"
+            app:srcCompat="@drawable/abc_vector_test" />
 
-        </LinearLayout>
-    </ScrollView>
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="64dip"
-        android:layout_height="64dip"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/add_workout"
-        android:onClick="switchToAddWorkout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="65dp"
-        android:layout_height="59dp"
-        android:onClick="backToMainHome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@drawable/abc_vector_test" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/add_workout"
+            android:onClick="switchToAddWorkout" />
+    </LinearLayout>
+</LinearLayout>
