@@ -154,19 +154,21 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
 
         switch(id) {
             case R.id.start_workout:
-                intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
-
+                intent = new Intent(MainHomeActivity.this, CountDownBeforeWorkoutActivity.class);
                 break;
             case R.id.add_workout:
-
+                intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
                 break;
             case R.id.view_workout:
-
+                intent = new Intent(MainHomeActivity.this, MainHomeActivity.class);
                 break;
             case R.id.view_friends:
-
+                intent = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);;
                 break;
             case R.id.sign_out_item:
+                mAuth.signOut();
+                Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainHomeActivity.this, login_page.class);
                 break;
         }
         startActivity(intent);

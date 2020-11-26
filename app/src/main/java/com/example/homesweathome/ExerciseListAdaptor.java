@@ -56,7 +56,6 @@ public class ExerciseListAdaptor extends RecyclerView.Adapter<ExerciseListAdapto
         frame = view.findViewById(R.id.timer_fragment_container);
         exerciseType = view.findViewById(R.id.exercise_type);
         exerciseDuration = view.findViewById(R.id.duration);
-        nextExercise = view.findViewById(R.id.next_exercise);
 
         String exTitle = exercise.getExerciseTitle();
         exerciseTitle.setText(exTitle);
