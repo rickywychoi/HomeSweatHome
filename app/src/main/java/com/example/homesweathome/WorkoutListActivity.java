@@ -38,7 +38,6 @@ public class WorkoutListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_list);
         linearLayout = findViewById(R.id.linearLayout);
-        linearLayout.setBackgroundColor(Color.GRAY);
 
         // [START initialize_auth]
         // Initialize Firebase Auth

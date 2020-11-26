@@ -50,7 +50,6 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
         linearLayout = findViewById(R.id.linearLayout);
-        linearLayout.setBackgroundColor(Color.GRAY);
         drawerLay = (DrawerLayout) findViewById(R.id.navbar);
         toggle = new ActionBarDrawerToggle(this, drawerLay, R.string.navOpen, R.string.navClose);
         drawerLay.addDrawerListener(toggle);
