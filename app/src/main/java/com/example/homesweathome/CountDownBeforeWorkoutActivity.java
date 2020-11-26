@@ -10,6 +10,11 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.TextView;
 
+import com.example.homesweathome.model.Workout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class CountDownBeforeWorkoutActivity extends AppCompatActivity {
     private static int TIME_OUT = 7200;
 
