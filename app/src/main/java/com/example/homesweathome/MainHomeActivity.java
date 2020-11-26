@@ -78,7 +78,7 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
             workoutList.clear();
             for (DataSnapshot workoutSnapshot : dataSnapshot.getChildren()) {
                 Workout workout = workoutSnapshot.getValue(Workout.class);
-                if(workout.getUid().equals(mAuth.getUid())) {
+                if (workout.getUid().equals(mAuth.getUid())) {
                     if (workout.getDayOfWeekList().contains(currentDate.getDayOfWeek())) {
                         workoutList.add(workout);
                     }
