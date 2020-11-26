@@ -144,7 +144,7 @@ public class WorkoutPlayActivity extends AppCompatActivity {
             previousWorkoutManager.add(new PreviousWorkout(w.getUid(), workoutTitle));
         }
 
-        Intent i = new Intent(WorkoutPlayActivity.this, WorkoutDoneActivity.class);
+        Intent i = new Intent(WorkoutPlayActivity.this, WorkoutHistoryActivity.class);
         startActivity(i);
     }
 }

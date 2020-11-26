@@ -76,8 +76,6 @@ public class WorkoutHistoryActivity extends AppCompatActivity {
             workoutRecycler.setLayoutManager(glm);
         });
 
-
-
         // [START initialize_auth]
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -88,40 +86,7 @@ public class WorkoutHistoryActivity extends AppCompatActivity {
         pmanager = new PreviousWorkoutManager();
         // [END initialize_firebase]
 
-
-        Button testPrevButton = findViewById(R.id.prevTest);
-
-        testPrevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String prevworkoutName = "test";
-                    PreviousWorkout prev = new PreviousWorkout(mAuth.getUid(), prevworkoutName);
-                    pmanager.add(prev).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(
-                                    WorkoutHistoryActivity.this,
-                                    "Successfully added workout.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(
-                                    WorkoutHistoryActivity.this,
-                                    "Failed to add workout.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-            }
-        });
-
-
-
-
     }
-
-
 
     public void switchToAddWorkout(View view) {
         Intent intent = new Intent(this, AddWorkoutActivity.class);
