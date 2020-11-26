@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/prevlinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center"
-        android:text="My Workouts"
+        android:text="Past Workouts"
         android:layout_marginBottom="20dp"
         android:textSize="16pt" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/workouts_recycler_view"
+        android:id="@+id/prevworkouts_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="519dp" />
 
@@ -36,22 +36,14 @@
             android:layout_width="65dp"
             android:layout_height="59dp"
             android:onClick="backToMainHome"
+            android:layout_marginRight="200dp"
             app:srcCompat="@drawable/abc_vector_test" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/prevTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="switchToWorkoutHistory"
-            android:text="History" />
-
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="64dip"
-            android:layout_height="64dip"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/add_workout"
-            android:onClick="switchToAddWorkout" />
+            android:text="TEST PREV">
+        </Button>
     </LinearLayout>
 </LinearLayout>

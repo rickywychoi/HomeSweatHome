@@ -1,5 +1,6 @@
 package com.example.homesweathome;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,9 +12,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.homesweathome.model.Workout;
 import com.example.homesweathome.viewModel.WorkoutsViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 
@@ -62,6 +67,13 @@ public class WorkoutListActivity extends AppCompatActivity {
             workoutRecycler.setLayoutManager(glm);
         });
 
+
+
+    }
+
+    public void switchToWorkoutHistory(View view) {
+        Intent intent = new Intent(this, WorkoutHistoryActivity.class);
+        startActivity(intent);
     }
 
     public void switchToAddWorkout(View view) {
