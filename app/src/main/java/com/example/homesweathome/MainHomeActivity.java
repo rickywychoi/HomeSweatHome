@@ -1,5 +1,6 @@
 package com.example.homesweathome;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.homesweathome.model.Workout;
 import com.example.homesweathome.viewModel.WorkoutsViewModel;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +33,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainHomeActivity extends AppCompatActivity {
+public class MainHomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
@@ -55,6 +57,9 @@ public class MainHomeActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -73,21 +78,25 @@ public class MainHomeActivity extends AppCompatActivity {
             workoutList.clear();
             for (DataSnapshot workoutSnapshot : dataSnapshot.getChildren()) {
                 Workout workout = workoutSnapshot.getValue(Workout.class);
-                if (workout.getDayOfWeekList().contains(currentDate.getDayOfWeek())) {
-                    workoutList.add(workout);
+                if(workout.getUid().equals(mAuth.getUid())) {
+                    if (workout.getDayOfWeekList().contains(currentDate.getDayOfWeek())) {
+                        workoutList.add(workout);
+                    }
                 }
             }
+
             dailyWorkoutRecycler.setAdapter(new DailyWorkoutsAdapter(workoutList));
             GridLayoutManager glm = new GridLayoutManager(getApplication(), 1);
             dailyWorkoutRecycler.setLayoutManager(glm);
+
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.options_menu, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.options_menu, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
@@ -107,37 +116,7 @@ public class MainHomeActivity extends AppCompatActivity {
         if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
-
-        switch (item.getItemId()) {
-            case R.id.start_workout:
-                Intent intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
-                startActivity(intent);
-                drawerLay.closeDrawer(GravityCompat.START);
-                return true;
-//            case R.id.add_workout:
-//                Intent intent1 = new Intent(MainHomeActivity.this, EditExerciseActivity.class);
-//                startActivity(intent1);
-//                drawerLay.closeDrawer(GravityCompat.START);
-//                return true;
-            case R.id.view_workout:
-                Intent intent2 = new Intent(MainHomeActivity.this, AboutUs.class);
-                startActivity(intent2);
-                drawerLay.closeDrawer(GravityCompat.START);
-                return true;
-            case R.id.view_friends:
-                Intent intent3 = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);
-                startActivity(intent3);
-                drawerLay.closeDrawer(GravityCompat.START);
-                return true;
-            case R.id.sign_out_item:
-                mAuth.signOut();
-                Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainHomeActivity.this, login_page.class));
-                drawerLay.closeDrawer(GravityCompat.START);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return false;
     }
 
     public void startWorkout() {
@@ -166,5 +145,36 @@ public class MainHomeActivity extends AppCompatActivity {
         WorkoutPlayActivity.setTime(15 * 60);
         Intent intent = new Intent(MainHomeActivity.this, CountDownBeforeWorkoutActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+        Intent intent = null;
+
+        switch(id) {
+            case R.id.start_workout:
+                intent = new Intent(MainHomeActivity.this, CountDownBeforeWorkoutActivity.class);
+                break;
+            case R.id.add_workout:
+                intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
+                break;
+            case R.id.view_workout:
+                intent = new Intent(MainHomeActivity.this, MainHomeActivity.class);
+                break;
+            case R.id.view_friends:
+                intent = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);;
+                break;
+            case R.id.sign_out_item:
+                mAuth.signOut();
+                Toast.makeText(MainHomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                intent = new Intent(MainHomeActivity.this, login_page.class);
+                break;
+        }
+        startActivity(intent);
+
+        DrawerLayout drawer = findViewById(R.id.navbar);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
