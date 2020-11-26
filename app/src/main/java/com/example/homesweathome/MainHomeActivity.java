@@ -134,7 +134,7 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
     public void viewWorkout() {
         
     }
-    
+
     public void switchToWorkoutList(View view) {
         Intent intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
         startActivity(intent);
