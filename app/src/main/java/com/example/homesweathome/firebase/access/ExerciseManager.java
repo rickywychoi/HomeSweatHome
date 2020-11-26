@@ -28,6 +28,7 @@ public class ExerciseManager {
 //        return database.child(WORKOUT_REF).child(id).updateChildren(updates);
 //    }
 //
+    
 //    public Task<Void> delete(Record toDelete) {
 //        String id =  toDelete.getRecordFor() + "-" + toDelete.getDate().getTime();
 //        return database.child(WORKOUT_REF).child(id).removeValue();
