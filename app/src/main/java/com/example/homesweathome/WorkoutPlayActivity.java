@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.homesweathome.firebase.access.PreviousWorkoutManager;
 import com.example.homesweathome.model.Exercise;
+import com.example.homesweathome.model.PreviousWorkout;
 import com.example.homesweathome.model.Workout;
 import com.example.homesweathome.viewModel.ExercisesViewModel;
 import com.example.homesweathome.viewModel.WorkoutsViewModel;
@@ -25,6 +27,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class WorkoutPlayActivity extends AppCompatActivity {
+    PreviousWorkoutManager previousWorkoutManager;
+
     private static int seconds = 0;
     private boolean running = true;
     private boolean wasRunning;
@@ -47,6 +51,7 @@ public class WorkoutPlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_workout_play);
 
         mAuth = FirebaseAuth.getInstance();
+        previousWorkoutManager = new PreviousWorkoutManager();
 
         workoutList = new ArrayList<>();
         exerciseList = new ArrayList<>();
@@ -134,6 +139,11 @@ public class WorkoutPlayActivity extends AppCompatActivity {
     }
 
     public void workoutDone(View view) {
+        for (Workout w : workoutList) {
+            String workoutTitle = w.getName();
+            previousWorkoutManager.add(new PreviousWorkout(w.getUid(), workoutTitle));
+        }
+
         Intent i = new Intent(WorkoutPlayActivity.this, WorkoutDoneActivity.class);
         startActivity(i);
     }

@@ -53,7 +53,7 @@
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:onClick="workoutDone"
-                    android:text="Workout is considered to be done when you finish all of the exercises" />
+                    android:text="End Workout" />
 
             </LinearLayout>
 

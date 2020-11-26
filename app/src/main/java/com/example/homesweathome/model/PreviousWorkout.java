@@ -34,6 +34,4 @@ public class PreviousWorkout extends UserObject{
     public void setPlayedDate(Date newDate) {
         this.playedDate = newDate;
     }
-
-
 }
