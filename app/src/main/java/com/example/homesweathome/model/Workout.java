@@ -70,7 +70,7 @@ public class Workout extends UserObject implements Parcelable {
 
     @Override
     public String toString() {
-        return (uid + "_" + name + "_" + addedDate.getTime());
+        return (uid + "_" + name);
     }
 
     @Override
