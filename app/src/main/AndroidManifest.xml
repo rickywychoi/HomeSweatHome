@@ -16,7 +16,6 @@
         <activity android:name=".EditWorkoutActivity" />
         <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".ShareWithFriendsActivity" />
         <activity android:name=".WorkoutDoneActivity" />
         <activity android:name=".WorkoutPauseActivity" />
         <activity android:name=".CountDownBeforeWorkoutActivity" />

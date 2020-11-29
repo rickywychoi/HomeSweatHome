@@ -16,14 +16,16 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:layout_marginBottom="15dp"
-        android:text="Workout Sample" />
+        android:text="Workout Sample"
+        android:textColor="@color/mainColor"/>
 
     <TextView
         android:id="@+id/prevworkout_item_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="@color/mainColor"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -20,17 +20,6 @@ public class WorkoutDoneActivity extends AppCompatActivity {
     }
 
     public void onClickShare(View view) {
-        TextView txtclose;
-        Button sendBtn;
-        myDialog.setContentView(R.layout.activity_share_with_friends);
-        txtclose = (TextView) myDialog.findViewById(R.id.txtclose);
-        sendBtn = (Button) myDialog.findViewById(R.id.sendBtn);
-        txtclose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myDialog.dismiss();
-            }
-        });
-        myDialog.show();
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.homesweathome;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -183,11 +184,15 @@ public class AddExerciseFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(getActivity(), "Successfully added exercise.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), WorkoutListActivity.class);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getActivity(), "Failed to add exercise.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), WorkoutListActivity.class);
+                startActivity(intent);
             }
         });
     }

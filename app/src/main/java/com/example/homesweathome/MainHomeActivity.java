@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +25,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -50,7 +47,7 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
         linearLayout = findViewById(R.id.linearLayout);
-        drawerLay = (DrawerLayout) findViewById(R.id.navbar);
+        drawerLay = (DrawerLayout) findViewById(R.id.nav_bar);
         toggle = new ActionBarDrawerToggle(this, drawerLay, R.string.navOpen, R.string.navClose);
         drawerLay.addDrawerListener(toggle);
         toggle.syncState();
@@ -154,14 +151,11 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
             case R.id.start_workout:
                 intent = new Intent(MainHomeActivity.this, CountDownBeforeWorkoutActivity.class);
                 break;
-            case R.id.add_workout:
-                intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
-                break;
-            case R.id.view_workout:
+            case R.id.view_today_workout:
                 intent = new Intent(MainHomeActivity.this, MainHomeActivity.class);
                 break;
-            case R.id.view_friends:
-                intent = new Intent(MainHomeActivity.this, ShareWithFriendsActivity.class);;
+            case R.id.view_all_workout:
+                intent = new Intent(MainHomeActivity.this, WorkoutListActivity.class);
                 break;
             case R.id.sign_out_item:
                 mAuth.signOut();
@@ -171,7 +165,7 @@ public class MainHomeActivity extends AppCompatActivity implements NavigationVie
         }
         startActivity(intent);
 
-        DrawerLayout drawer = findViewById(R.id.navbar);
+        DrawerLayout drawer = findViewById(R.id.nav_bar);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
