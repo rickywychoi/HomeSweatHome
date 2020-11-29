@@ -59,7 +59,6 @@ public class ExerciseListAdaptor extends RecyclerView.Adapter<ExerciseListAdapto
         frame = view.findViewById(R.id.timer_fragment_container);
         exerciseType = view.findViewById(R.id.exercise_type);
         exerciseDuration = view.findViewById(R.id.duration);
-        exercisePrmptBtn = view.findViewById(R.id.exercise_prompt_btn);
 
         String exTitle = exercise.getExerciseTitle();
         exerciseTitle.setText(exTitle);
@@ -68,16 +67,6 @@ public class ExerciseListAdaptor extends RecyclerView.Adapter<ExerciseListAdapto
         exerciseWorkoutTitle.setText(workoutTitle);
 
         String exType = "";
-
-        if (!exercise.isRepBased()) {
-            exType = "Elapsed Time";
-            exerciseType.setText(exType);
-            exercisePrmptBtn.setText("Start");
-        } else if (exercise.isRepBased()){
-            exType = "Repetitions";
-            exerciseType.setText(exType);
-            exercisePrmptBtn.setText("Next Set");
-        }
 
         Integer rep = 0;
         Integer set = 0;
@@ -98,17 +87,6 @@ public class ExerciseListAdaptor extends RecyclerView.Adapter<ExerciseListAdapto
         Integer finalMinute = minute;
         Integer finalSecond = second;
 
-        exercisePrmptBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!exercise.isRepBased()) {
-                    int seconds = finalMinute * 60 + finalSecond;
-//                    runTimer(seconds, exerciseDuration);
-                } else {
-
-                }
-            }
-        });
     }
 
 //    private void runTimer(int seconds, TextView tvDuration) {

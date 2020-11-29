@@ -8,18 +8,17 @@
             android:id="@+id/start_workout"
             android:icon="@drawable/play_button"
             android:title="Start Today's Workout" />
+
         <item
-            android:id="@+id/add_workout"
-            android:icon="@drawable/plus"
-            android:title="Add Workouts" />
-        <item
-            android:id="@+id/view_workout"
+            android:id="@+id/view_today_workout"
             android:icon="@drawable/loupe"
-            android:title="View Workouts" />
+            android:title="View Today's Workouts" />
+
         <item
-            android:id="@+id/view_friends"
-            android:icon="@drawable/hive_five"
-            android:title="View Friends" />
+            android:id="@+id/view_all_workout"
+            android:icon="@drawable/all_dumbbell"
+            android:title="View All Workouts"/>
+
         <item
             android:id="@+id/sign_out_item"
             android:icon="@drawable/logout"

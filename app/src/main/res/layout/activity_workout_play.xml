@@ -35,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="10dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/workout_play_recycler"
@@ -53,7 +54,9 @@
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:onClick="workoutDone"
-                    android:text="End Workout" />
+                    android:text="End Workout"
+                    android:background="@drawable/button_view"
+                    android:textColor="#fff" />
 
             </LinearLayout>
 
