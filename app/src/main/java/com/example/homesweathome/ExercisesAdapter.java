@@ -1,21 +1,32 @@
 package com.example.homesweathome;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.homesweathome.firebase.access.ExerciseManager;
 import com.example.homesweathome.model.Exercise;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.List;
 
 public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.ViewHolder> {
     private List<Exercise> exerciseList;
+
+    // [START declare_firebase]
+    ExerciseManager exerciseManager;
+    // [END declare_firebase]
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         View view;
@@ -41,6 +52,11 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final View view = holder.view;
+
+        // [START initialize_firebase]
+        // Initialize Firebase Realtime Database
+        exerciseManager = new ExerciseManager();
+        // [END initialize_firebase]
 
         Exercise exercise = exerciseList.get(position);
 
@@ -75,7 +91,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter<ExercisesAdapter.View
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                exerciseManager.delete(exercise).addOnCompleteListener(task -> notifyItemRemoved(position));
             }
         });
         saveBtn.setOnClickListener(new View.OnClickListener() {

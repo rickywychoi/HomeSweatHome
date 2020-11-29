@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewWorkoutActivity"></activity>
+        <activity android:name=".WorkoutHistoryActivity"></activity>
+        <activity android:name=".ViewWorkoutActivity" />
         <activity android:name=".EditWorkoutActivity" />
         <activity android:name=".AddWorkoutActivity" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".ShareWithFriendsActivity" />
         <activity android:name=".WorkoutDoneActivity" />
         <activity android:name=".WorkoutPauseActivity" />
         <activity android:name=".CountDownBeforeWorkoutActivity" />

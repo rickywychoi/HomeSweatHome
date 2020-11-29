@@ -115,7 +115,7 @@ public class Exercise extends UserObject implements Parcelable {
 
     @Override
     public String toString() {
-        return (uid + "_" + workoutTitle + "_" + exerciseTitle + "_" + addedDate.getTime());
+        return (uid + "_" + workoutTitle + "_" + exerciseTitle);
     }
 
     @Override

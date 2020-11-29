@@ -28,6 +28,7 @@
     <string name="add_workout_edit_text_hint">Enter the name of the workout (e.g., Cardio, Chest, Leg, ...)</string>
     <string name="view_btn_label">View</string>
     <string name="edit_btn_label">Edit</string>
+    <string name="add_btn_label">Add</string>
     <string name="delete_btn_label">Delete</string>
     <string name="save_btn_label">Save</string>
     <string name="add_exercise_label">Add Exercises</string>

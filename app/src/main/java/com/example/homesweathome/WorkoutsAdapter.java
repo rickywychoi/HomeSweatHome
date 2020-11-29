@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.homesweathome.firebase.access.WorkoutManager;
 import com.example.homesweathome.model.Workout;
 
 import java.time.DayOfWeek;
@@ -19,6 +20,9 @@ import java.util.List;
 
 public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHolder> {
     private List<Workout> workoutList;
+    // [START declare_firebase]
+    WorkoutManager workoutManager;
+    // [END declare_firebase]
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private View view;
@@ -45,6 +49,12 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final View view = holder.view;
         Context ctx = view.getContext();
+
+        // [START initialize_firebase]
+        // Initialize Firebase Realtime Database
+        workoutManager = new WorkoutManager();
+        // [END initialize_firebase]
+
 
         TextView workoutTitleTv;
         TextView workoutDaysTv;
@@ -84,10 +94,9 @@ public class WorkoutsAdapter extends RecyclerView.Adapter<WorkoutsAdapter.ViewHo
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                workoutManager.delete(workout).addOnCompleteListener(task -> notifyItemRemoved(position));
             }
         });
-
     }
 
     @Override
